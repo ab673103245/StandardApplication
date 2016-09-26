@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="qianfeng.standardapplication">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!--  没有指定 launchMode ，默认就是 standard -->
+        <!-- singleTask : 一般用于退出应用程序 -->
+        <activity android:name=".StandardActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 设定SecondActivity的启动方式为  singleInstance ,注意要给任务栈起名字 taskAffinity 以: 开头 -->
+        <activity android:name=".SecondActivity"
+            android:launchMode="singleInstance"
+            android:taskAffinity=":task"
+            ></activity>
+    </application>
+
+</manifest>
